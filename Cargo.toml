@@ -1,0 +1,36 @@
+[package]
+name = "minimal-web"
+version = "0.1.0"
+authors = ["Jay Oster <jay@kodewerx.org>"]
+edition = "2021"
+publish = false
+
+[features]
+optimize = ["log/release_max_level_warn"]
+default = ["optimize"]
+
+[dependencies]
+bytemuck = "1.13.1"
+error-iter = "0.4"
+log = "0.4"
+pixels = "0.12.1"
+winit = "0.27"
+winit_input_helper = "0.13"
+cargo-run-wasm = "0.3"
+
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1"
+console_log = "0.2"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["GpuTextureFormat"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+env_logger = "0.10"
+pollster = "0.2"
+
+[workspace]
+members = [
+    "run-wasm",
+]
