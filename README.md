@@ -1,3 +1,5 @@
+Demo project for https://github.com/parasyte/pixels/issues/360
+
 # Hello Pixels + Web
 
 ![Hello Pixels + Web](../../img/minimal-web.png)
