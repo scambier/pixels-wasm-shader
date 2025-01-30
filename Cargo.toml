@@ -13,10 +13,9 @@ default = ["optimize"]
 bytemuck = "1.13.1"
 error-iter = "0.4"
 log = "0.4"
-pixels = "0.12.1"
-winit = "0.27"
-winit_input_helper = "0.13"
-cargo-run-wasm = "0.3"
+pixels = "0.15"
+winit = "0.29"
+winit_input_helper = "0.15"
 
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
