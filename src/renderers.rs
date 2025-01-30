@@ -69,10 +69,11 @@ impl NoiseRenderer {
         };
 
         // Create uniform buffer
-        let time_buffer = device.create_buffer_init(&wgpu::util::BufferInitDescriptor {
+        let time_buffer = device.create_buffer(&wgpu::BufferDescriptor {
             label: Some("NoiseRenderer u_Time"),
-            contents: &0.0_f32.to_ne_bytes(),
+            size: 32, // Ensure this matches the minimum required size by the shader
             usage: wgpu::BufferUsages::UNIFORM | wgpu::BufferUsages::COPY_DST,
+            mapped_at_creation: false,
         });
 
         // Create bind group
@@ -101,7 +102,7 @@ impl NoiseRenderer {
                     ty: wgpu::BindingType::Buffer {
                         ty: wgpu::BufferBindingType::Uniform,
                         has_dynamic_offset: false,
-                        min_binding_size: wgpu::BufferSize::new(std::mem::size_of::<f32>() as u64),
+                        min_binding_size: wgpu::BufferSize::new(32),
                     },
                     count: None,
                 },

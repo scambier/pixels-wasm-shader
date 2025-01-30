@@ -21,6 +21,7 @@ fn vs_main(
 @group(0) @binding(1) var r_tex_sampler: sampler;
 struct Locals {
     time: f32,
+    pad: vec3<f32>, // Add padding to make the struct 16-byte aligned
 }
 @group(0) @binding(2) var<uniform> r_locals: Locals;
 
